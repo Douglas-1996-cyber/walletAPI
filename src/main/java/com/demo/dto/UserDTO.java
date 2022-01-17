@@ -1,16 +1,16 @@
 package com.demo.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 	
 	private Long id;
@@ -21,6 +21,7 @@ public class UserDTO {
 	private String name;
 	@Email(message = "Email invalido")
 	private String email;
+	
 	public String getPassword() {
 		return password;
 	}
@@ -32,6 +33,9 @@ public class UserDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;

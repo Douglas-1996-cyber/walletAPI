@@ -7,12 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import lombok.Data;
+import javax.persistence.Table;
 
 @Entity
-
+@Table(name="users")
 public class User implements Serializable{
+
 /**
 	 * 
 	 */
@@ -28,6 +28,9 @@ private String name;
 private String email;
 public String getPassword() {
 	return password;
+}
+public void setId(Long id) {
+	this.id = id;
 }
 public void setPassword(String password) {
 	this.password = password;
