@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -18,6 +19,7 @@ public class WalletItemDTO {
 	@NotNull(message ="Informe uma data")
 	private Date date;
 	@NotNull(message ="Informe um tipo")
+	@Pattern(regexp = "^(ENTRDA|SAIDA)$", message= "Para o tipo somente são aceitos os valores ENTRDA ou SAIDA")
 	private String type;
 	@NotNull(message = "Informe uma descrição")
 	@Length(min =5, message ="A descrição deve ter no minimo 5 carcteres")
